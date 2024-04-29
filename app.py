@@ -26,7 +26,7 @@ def generate_invoice_image(name, email, phone, services, price_list, total_amoun
     header_font = ImageFont.truetype(font_path, header_font_size)
 
     # Load Arial font for other text
-    arial_font_path = "/fonts/Bell.ttf"  # Replace with the actual font file path
+    arial_font_path = "/fonts/kunstler.ttf"  # Replace with the actual font file path
     font_size = 24
     arial_font = ImageFont.truetype(arial_font_path, font_size)
 
