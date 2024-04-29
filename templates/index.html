@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GiGi Hairstyles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            font-family: "Lucida Handwriting", cursive;
+            color: #ff3366;
+            text-align: center;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 400px;
+            margin: 0 auto;
+            margin-top: 50px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            color: #333333;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-bottom: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #ff3366;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #cc0044;
+        }
+
+        /* Additional styles for the price list */
+        .price-list {
+            font-family: "Arial", sans-serif;
+            text-align: left;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .price-list h2 {
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        .price-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .price-list li {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Additional styles for the invoice number */
+        .invoice-number {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>GiGi Hairstyles</h1>
+    <form action="/generate_invoice" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+        <br>
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" required>
+        <br>
+
+        <div class="price-list">
+            <h2>Wig Making</h2>
+            <ul>
+                <li><input type="checkbox" name="services" value="Wig Sewing">Wig Sewing - $11</li>
+                <li><input type="checkbox" name="services" value="2&quot; by 4&quot; Closure">2" by 4" Closure - $10</li>
+                <li><input type="checkbox" name="services" value="2&quot; by 6&quot; Closure">2" by 6" Closure - $15</li>
+                <li><input type="checkbox" name="services" value="Wig Sewing with Fringe/Bangs/No Part">Wig Sewing with Fringe/Bangs/No Part - Add $4</li>
+            </ul>
+        </div>
+
+        <div class="price-list">
+            <h2>Wig Revamp</h2>
+            <ul>
+                <li><input type="checkbox" name="services" value="Washing">Washing - $10</li>
+                <li><input type="checkbox" name="services" value="Styling">Styling - $10</li>
+                <li><input type="checkbox" name="services" value="Deconstruction &amp; Reconstruction">Deconstruction &amp; Reconstruction - $15</li>
+            </ul>
+        </div>
+
+        <div class="price-list">
+            <h2>Wig Customization</h2>
+            <ul>
+                <li><input type="checkbox" name="services" value="Knot Bleaching">Knot Bleaching - $10</li>
+                <li><input type="checkbox" name="services" value="Plucking">Plucking - $5</li>
+                <li><input type="checkbox" name="services" value="Highlights (Bleaching)">Highlights (Bleaching) - $20+</li>
+            </ul>
+        </div>
+
+        <div class="price-list">
+            <h2>Wig Accessories</h2>
+            <ul>
+                <li><input type="checkbox" name="services" value="Wig Satin Storage Bag">Wig Satin Storage Bag - $1</li>
+                <li><input type="checkbox" name="services" value="Addition of Adjustable Band">Addition of Adjustable Band - $2</li>
+            </ul>
+        </div>
+
+        <input type="submit" value="Generate Invoice">
+    </form>
+    
+</body>
+</html>
