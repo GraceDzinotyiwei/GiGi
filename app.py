@@ -22,12 +22,12 @@ def generate_invoice_image(name, email, phone, services, price_list, total_amoun
     draw = ImageDraw.Draw(image)
 
     # Load the Kunstler Script Regular font for the header
-    font_path = "fonts/kunstler.ttf"  # Replace with the actual font file path
+    font_path = "fonts/KUNSTLER.TTF"  # Replace with the actual font file path
     header_font_size = 200
     header_font = ImageFont.truetype(font_path, header_font_size)
 
     # Load Arial font for other text
-    arial_font_path = "fonts/Bell.ttf"  # Replace with the actual font file path
+    arial_font_path = "fonts/BELL.TTF"  # Replace with the actual font file path
     font_size = 40
     arial_font = ImageFont.truetype(arial_font_path, font_size)
 
@@ -37,19 +37,19 @@ def generate_invoice_image(name, email, phone, services, price_list, total_amoun
 
     # Draw the invoice header
     header_text = "GiGi Hairstyles - Invoice"
-    draw.text((x, y), header_text, font=header_font, fill=header_color , antialias = True)
+    draw.text((x, y), header_text, font=header_font, fill=header_color )
     y += 120
     
     # Draw the customer details
     customer_text = f"\n\nCustomer Name: {name}\nEmail: {email}\nPhone: {phone}"
-    draw.text((x, y), customer_text, font=arial_font, fill=text_color , antialias = True)
+    draw.text((x, y), customer_text, font=arial_font, fill=text_color )
     y += 100
 
     # Draw the selected services
     services_text = "\n\n\nSelected Services:\n"
     for service in services:
         services_text += f"- {service} (${price_list[service]})\n"
-    draw.text((x, y), services_text, font=arial_font, fill=text_color , antialias = True)
+    draw.text((x, y), services_text, font=arial_font, fill=text_color )
     y += 600
 
     # Draw the total amount
