@@ -1,4 +1,5 @@
 Flask==3.0.3
 Pillow==10.1.0
+fonttools==4.43.1
 requests==2.31.0
 gunicorn
