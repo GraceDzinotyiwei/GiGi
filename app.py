@@ -6,12 +6,13 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 app = Flask(__name__)
+app.static_folder = 'static'
 
 # Function to generate the styled invoice image
 def generate_invoice_image(name, email, phone, services, price_list, total_amount):
     # Define image dimensions and colors
-    image_width = 600
-    image_height = 800
+    image_width = 1920
+    image_height = 1080
     background_color = (255, 255, 255)
     text_color = (0, 0, 0)
     header_color = (102, 204, 255)  # Pastel shade of blue
@@ -21,13 +22,13 @@ def generate_invoice_image(name, email, phone, services, price_list, total_amoun
     draw = ImageDraw.Draw(image)
 
     # Load the Kunstler Script Regular font for the header
-    font_path = "fonts/KUNSTLER.TTF"  # Replace with the actual font file path
-    header_font_size = 48
+    font_path = "fonts/kunstler.ttf"  # Replace with the actual font file path
+    header_font_size = 200
     header_font = ImageFont.truetype(font_path, header_font_size)
 
     # Load Arial font for other text
-    arial_font_path = "fonts/BELL.TTF"  # Replace with the actual font file path
-    font_size = 24
+    arial_font_path = "fonts/Bell.ttf"  # Replace with the actual font file path
+    font_size = 40
     arial_font = ImageFont.truetype(arial_font_path, font_size)
 
     # Define the starting position for drawing text
@@ -36,30 +37,40 @@ def generate_invoice_image(name, email, phone, services, price_list, total_amoun
 
     # Draw the invoice header
     header_text = "GiGi Hairstyles - Invoice"
-    draw.text((x, y), header_text, font=header_font, fill=header_color)
-    y += 50
+    draw.text((x, y), header_text, font=header_font, fill=header_color , antialias = True)
+    y += 120
     
     # Draw the customer details
-    customer_text = f"\nCustomer Name: {name}\nEmail: {email}\nPhone: {phone}"
-    draw.text((x, y), customer_text, font=arial_font, fill=text_color)
+    customer_text = f"\n\nCustomer Name: {name}\nEmail: {email}\nPhone: {phone}"
+    draw.text((x, y), customer_text, font=arial_font, fill=text_color , antialias = True)
     y += 100
 
     # Draw the selected services
-    services_text = "\nSelected Services:\n"
+    services_text = "\n\n\nSelected Services:\n"
     for service in services:
         services_text += f"- {service} (${price_list[service]})\n"
-    draw.text((x, y), services_text, font=arial_font, fill=text_color)
-    y += 150
+    draw.text((x, y), services_text, font=arial_font, fill=text_color , antialias = True)
+    y += 600
 
     # Draw the total amount
-    total_text = f"\nTotal Amount: ${total_amount}"
-    draw.text((x, y), total_text, font=arial_font, fill=text_color)
+    total_text = f"\n\n\nTotal Amount: ${total_amount}"
+    draw.text((x, y), total_text, font=arial_font, fill=text_color , antialias = True)
 
     return image
 
 @app.route('/')
 def index():
     return render_template('/index.html')
+
+@app.route('/wigs')
+def wigs():
+    # You can add logic here to fetch the available wigs from a database or any other data source
+    #wigs = [
+      #  {'name': 'Wig 1', 'price': 100},
+      #  {'name': 'Wig 2', 'price': 150},
+       # {'name': 'Wig 3', 'price': 200}
+    #]
+    return render_template('wigs.html')
 
 @app.route('/generate_invoice', methods=['POST'])
 def generate_invoice():
@@ -114,7 +125,7 @@ def generate_invoice():
     # Send the invoice image as a response to display on the client's screen
     # Clear selected items and client informatio
     image_io = io.BytesIO()
-    invoice_image.save(image_io, 'PNG')
+    invoice_image.save(image_io, 'PNG', quality=95 )
     image_io.seek(0)
     return send_file(image_io, mimetype='image/png')
     # Send the invoice image as an attachment
