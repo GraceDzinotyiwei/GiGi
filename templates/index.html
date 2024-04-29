@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GiGi Hairstyles</title>
     <style>
         body {
@@ -87,6 +89,25 @@
             font-weight: bold;
             margin-top: 20px;
         }
+        /* Additional styles for the button */
+        .btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            text-align: center;
+            background-color: #ff3366;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #cc0044;
+        }
     </style>
 </head>
 <body>
@@ -140,6 +161,7 @@
 
         <input type="submit" value="Generate Invoice">
     </form>
-    
+    <!-- Add the button here -->
+    <a href="/wigs" class="btn">View Available Wigs</a>
 </body>
 </html>
