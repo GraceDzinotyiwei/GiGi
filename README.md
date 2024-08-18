@@ -1,1 +1,3 @@
-hey
+This is a website I created for my wig business. Clients can visit the site to make their own quotations and download images of the quotations of services they've selected from the available ones. The site also has a page showcasing other wigs that are currently on sale.
+
+This was a fun project that allowed me to learn how to build a website while incorporating my hobby of working with wigs. I mainly used Python Flask and HTML templates to build the site, and it's been a great way for me to showcase my wig offerings and provide a convenient quoting tool for my clients. I'm excited to continue developing the site and growing my wig business."
